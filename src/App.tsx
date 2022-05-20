@@ -1,17 +1,15 @@
-import { urls } from './API/urls'
-import {getEngines} from './API/index';
-import Header from './components/Header';
+import { Form, Header, HistorySection, Footer } from './components/Index';
 
 
 const App: React.FC = () => {
 
-    getEngines(urls.get.engines)
-        .then(response => {
-            console.log(response);
-        })
-        
   return (
-    <Header />
+      <>
+        <Header />
+            <Form />
+            <HistorySection />
+        <Footer />
+    </>
   );
 }
 

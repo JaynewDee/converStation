@@ -1,26 +1,22 @@
 
 
-
-
 const getEngines = async (url: string): Promise<Response>  => {
     const engineList = await fetch(url, {
         method: 'GET',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': process.env.OPENAI_API_KEY,
+            'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         },
     });
     return engineList;
-
 }
 
-// getEngines('https://api.openai.com/v1/engines', res)
-//     .then(data)
 
 
 
-export {getEngines};
+
+export { getEngines };
 
 
 // *** CREATE COMPLETION *** //
