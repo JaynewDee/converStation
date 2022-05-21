@@ -1,22 +1,29 @@
-import { Form, Header, HistorySection, Footer } from './components/Index';
+import { Header, Form, HistorySection, Footer } from "./components/Index";
+// import { getEngines } from './API/index';
+// import { urls } from './API/urls';
+
+// const { get, post } = urls;
+
 
 
 const App: React.FC = () => {
 
   return (
-      <>
-        <Header />
-            <Form />
-            <HistorySection />
-        <Footer />
+    <>
+      <Header />
+        <Form />
+        <HistorySection />
+      <Footer />
     </>
   );
-}
+};
 
 export default App;
 
-
 // *** SUMMARY OF AI ENGINE *** //
+
+// "id": "curie"
+// "id": "text-curie-001"
 
 // Curie
 

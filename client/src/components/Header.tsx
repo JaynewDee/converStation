@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header: React.FC = () => {
   return (
-    <header>
+    <header id="header-box">
         <h1>ConverStation</h1>
     </header>
   )

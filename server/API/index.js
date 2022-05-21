@@ -1,27 +1,46 @@
+const curie = require('express').Router();
+require('dotenv').config();
+const {
+    getEngines,
+    postCompletion
+} = require('./fetch.js');
+const urls = require('./urls.js');
+const {
+    get,
+    post
+} = urls;
 
 
-const getEngines = async (url: string): Promise<Response>  => {
-    const engineList = await fetch(url, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        },
-    });
-    return engineList;
-}
+// * GET ALL ENGINES * //
+curie.get('/api/engines', async (req, response) => {
+    try {
+        await getEngines(get.engines)
+            .then((res) => {
+                return response.send(res)
+            })
+    } catch (err) {
+        console.error(err)
+    }
+    return new Error("Error @ GET route to CURIE \n Filename: API/index.js")
+})
 
-
-
-
-
-export { getEngines };
+curie.post('/api/completions', async (req, response) => {
+    try {
+        await postCompletion(post.curieCompletion)
+            .then((res) => {
+                return response.send(res)
+            })
+    } catch (err) {
+        console.error(err)
+    }
+    return new Error("Error @ POST route to CURIE \n Filename: API/index.js")
+})
+module.exports = curie;
 
 
 // *** CREATE COMPLETION *** //
 // POST
- 
+
 // https://api.openai.com/v1/engines/{engine_id}/completions
 
 // Creates a new completion for the provided prompt and parameters
@@ -152,7 +171,7 @@ export { getEngines };
 
 // *** RETRIEVE ENGINE *** //
 // GET
- 
+
 // https://api.openai.com/v1/engines/{engine_id}
 
 // Retrieves an engine instance, providing basic information about the engine such as the owner and availability.
@@ -169,7 +188,7 @@ export { getEngines };
 
 // *** LIST ENGINES *** //
 // GET
- 
+
 // https://api.openai.com/v1/engines
 
 // Lists the currently available engines, and provides basic information about each one such as the owner and availability.
@@ -180,7 +199,7 @@ export { getEngines };
 
 // *** CREATE EDIT *** //
 // POST
- 
+
 // https://api.openai.com/v1/engines/{engine_id}/edits
 
 // Creates a new edit for the provided input, instruction, and parameters
@@ -221,5 +240,3 @@ export { getEngines };
 // *** end section *** //
 
 // 
-
-
