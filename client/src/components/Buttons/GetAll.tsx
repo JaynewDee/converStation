@@ -14,6 +14,7 @@ const GetAll: React.FC = () => {
             })
             .then((result) => result.json())
             .then((data) => setList(data.data))
+            .catch((err) => console.error(err))
 
     }
 
@@ -27,7 +28,6 @@ const GetAll: React.FC = () => {
             (
                 
                 <a href="https://beta.openai.com/docs/api-reference/engines">{id}</a>
-                
                 
             ))}
     </div>

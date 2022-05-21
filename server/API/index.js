@@ -11,7 +11,6 @@ const {
 } = urls;
 
 
-// * GET ALL ENGINES * //
 curie.get('/api/engines', async (req, response) => {
     try {
         await getEngines(get.engines)
@@ -25,6 +24,7 @@ curie.get('/api/engines', async (req, response) => {
 })
 
 curie.post('/api/completions', async (req, response) => {
+    console.log(req.body)
     try {
         await postCompletion(post.curieCompletion)
             .then((res) => {
@@ -35,6 +35,9 @@ curie.post('/api/completions', async (req, response) => {
     }
     return new Error("Error @ POST route to CURIE \n Filename: API/index.js")
 })
+
+
+
 module.exports = curie;
 
 
