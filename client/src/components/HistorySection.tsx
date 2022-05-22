@@ -2,7 +2,7 @@ import React from 'react'
 import HistoryItem from './HistoryItem';
 const HistorySection: React.FC = () => {
   return (
-    <section>
+    <section id="history-box">
 
         <HistoryItem />
         <HistoryItem />

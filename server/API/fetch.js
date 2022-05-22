@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const OPENAI_API_KEY = "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"
+const OPENAI_API_KEY = "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"
 
 
 
@@ -27,27 +27,24 @@ const getInstance = async (url) => {
     return instance.data;
 }
 
-const postCompletion = async (url) => {
+const postCompletion = async (url, prompt) => {
     
-        const botResponse = await axios({
-            method: 'post',
-            url: url,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${OPENAI_API_KEY}`,
-            },
-            data: {
-                "prompt": "Tell me a joke about chickens",
-                "max_tokens": 42,
-                "temperature": 0.9,
-                "n": 1,
-                "echo": true
-            }
-        })
-    
-
-    console.log(botResponse.data.choices)
-    return botResponse.data.choices
+    const botResponse = await axios({
+        method: 'post',
+        url: url,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        },
+        data: {
+            "prompt": `${prompt}`,
+            "max_tokens": 36,
+            "temperature": 0.9,
+            "n": 1,
+            "echo": true
+        }
+    })
+    return botResponse.data
 }
 
 module.exports = {

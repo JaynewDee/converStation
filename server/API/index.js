@@ -1,4 +1,5 @@
 const curie = require('express').Router();
+
 require('dotenv').config();
 const {
     getEngines,
@@ -23,18 +24,19 @@ curie.get('/api/engines', async (req, response) => {
     return new Error("Error @ GET route to CURIE \n Filename: API/index.js")
 })
 
-curie.post('/api/completions', async (req, response) => {
-    console.log(req.body)
+
+
+curie.post('/api/completion', async (req, response) => {
+    const curiePrompt = req.body.prompt;
+
     try {
-        await postCompletion(post.curieCompletion)
-            .then((res) => {
-                return response.send(res)
-            })
-    } catch (err) {
-        console.error(err)
+        const reply = 
+            await postCompletion(post.curieCompletion, curiePrompt)
+                .then((res)=> response.send(res));
     }
-    return new Error("Error @ POST route to CURIE \n Filename: API/index.js")
+    catch (err){console.error(err)}
 })
+
 
 
 

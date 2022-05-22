@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
 }
 
 code {
@@ -25,9 +27,39 @@ code {
     }
 }
 
+.prompt-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    margin-bottom: 4rem;
 
+    #prompt-form {
 
-#btn-stack {
+        #prompt-field {
+            margin: auto;
+            width: 66%;
+            height: 13rem;
+            resize: none;
+            overflow: auto;
+        }
+        .submit-btn {
+            margin-top: 2rem;
+        }
+
+    }
+    
+    
+}
+
+// #btn-stack {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-flow: column wrap;
+// }
+
+#history-box {
     display: flex;
     justify-content: center;
     align-items: center;

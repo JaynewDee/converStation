@@ -1,27 +1,70 @@
 import React, { useState } from "react";
+const axios = require("axios").default;
+
 // import FormSubmit from './Buttons/FormSubmit';
-import GetOne from "./Buttons/GetOne";
 // import GetAll from './Buttons/GetAll';
 
 const Form: React.FC = () => {
-  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
+  const [formText, setFormText] = useState("");
+  const [prompt, setPrompt] = useState("");
+  const [roboReply, setReply] = useState("");
 
+  console.log(prompt);
+  console.log(roboReply);
+  console.log(formText);
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    const { value } = event.target;
+    setFormText(value);
+  };
+
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    await axios({
+        method: 'post',
+        url: '/api/completion',
+        data: {
+            prompt: formText
+        }
+    }).then((data) => {
+        // Strip newlines from relevant prompt/response data
+        let choices = data.data.choices[0].text.replace(/(\r\n|\n|\r)/gm, " ");
+        // Transform json string into manageable object
+        let promptObject = JSON.parse(data.config.data)
+        // Extract string value of prompt key in object
+        let textOnly = promptObject.prompt;
+        // Replace any occurences of the prompt inside the entire text string,
+            // storing only the AI's response
+        let replyOnly = choices.replace(textOnly, "")
+
+        // Store final values in component state, to pass to parents
+        setPrompt(textOnly)
+        setReply(replyOnly)
+    })
+    // clear form values
+    setFormText("");
   };
 
   return (
-    <>
-      <textarea form="prompt-form">
-
-      </textarea>
-      <form id="prompt-form">
-        {/* <div id="btn-stack"> */}
-        <GetOne />
-        {/* </div> */}
+    <section className="prompt-box">
+      
+      <form action="submit" method="post" id="prompt-form">
+        <textarea
+        value={formText}
+        id="prompt-field"
+        form="prompt-form"
+        spellCheck="true"
+        onChange={handleInputChange}
+        ></textarea>
+        <input
+          type="button"
+          value="SEND"
+          className="submit-btn"
+          onClick={handleFormSubmit}
+        ></input>
       </form>
-    </>
+      
+    </section>
   );
 };
 
