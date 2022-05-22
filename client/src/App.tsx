@@ -1,4 +1,5 @@
-import { Header, Form, HistorySection, Footer } from "./components/Index";
+import { Header, Portal, Footer } from "./components/Index";
+import React, { useState } from 'react';
 // import { getEngines } from './API/index';
 // import { urls } from './API/urls';
 
@@ -7,15 +8,16 @@ import { Header, Form, HistorySection, Footer } from "./components/Index";
 
 
 const App: React.FC = () => {
+    
 
-  return (
-    <>
-      <Header />
-        <Form />
-        <HistorySection />
-      <Footer />
-    </>
-  );
+    return (
+      <>
+        <Header />
+            {/* or, gateway between form, display and history */}
+          <Portal />
+        <Footer />
+      </>
+    );
 };
 
 export default App;
@@ -23,7 +25,7 @@ export default App;
 // *** SUMMARY OF AI ENGINE *** //
 
 // "id": "curie"
-// "id": "text-curie-001"
+// "engine_id": "text-curie-001"
 
 // Curie
 

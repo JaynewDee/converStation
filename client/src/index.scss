@@ -23,7 +23,7 @@ code {
         margin: 3rem auto 0;
     }
     h3 {
-        margin: 0 auto 6rem;
+        margin: 0 auto 3rem;
     }
 }
 
@@ -35,18 +35,37 @@ code {
     margin-bottom: 4rem;
 
     #prompt-form {
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        width: 66%;
+        
         #prompt-field {
+            margin: auto;
+            width: 66%;
+            height: 12rem;
+            resize: none;
+            padding: 3rem 5rem;
+            font-size: 2rem;
+            letter-spacing: 1.7;
+            border-radius: 1rem;
+            caret-color: red;
+        }
+        #prompt-field::after {
+            content: "";
+            position: relative;
             margin: auto;
             width: 66%;
             height: 13rem;
             resize: none;
-            overflow: auto;
+            
+            pointer-events: none;
+            z-index: -1;
         }
         .submit-btn {
             margin-top: 2rem;
         }
-
     }
     
     
@@ -58,8 +77,28 @@ code {
 //     align-items: center;
 //     flex-flow: column wrap;
 // }
+#history-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    overflow: auto;
+    #history-box {
+        position: relative;
+        display: block;
+        height: 17rem;
+        width: 66%;
+        margin: auto;
+        .exchange {
+            width: 66%;
+            display: flex;
+            flex-flow: column wrap;
+            margin: auto;
+        }
+    }
+}
 
-#history-box {
+#footer-box {
     display: flex;
     justify-content: center;
     align-items: center;

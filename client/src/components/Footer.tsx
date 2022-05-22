@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer: React.FC = () => {
   return (
-    <div> I'm the FOOTER! </div>
+    <div id="footer-box"> I'm the FOOTER! </div>
   )
 }
 
