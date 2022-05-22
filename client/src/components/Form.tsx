@@ -39,7 +39,7 @@ const Form: React.FC<FormProps> = ({ setCurrent }) => {
         // Replace any occurences of the prompt inside the entire text string,
         // storing only the AI's response
         let replyOnly = choices.replace(textOnly, "");
-        // Store final values in component state, to pass to parents
+        // Store final values in component state, to pass to parent portal
         setPrompt(textOnly);
         setReply(replyOnly);
         return {prompt: textOnly, response: replyOnly}

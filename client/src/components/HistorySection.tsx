@@ -15,10 +15,9 @@ const HistorySection: React.FC<HistoryTypes> = ({data}) => {
       <>
       
     <section id="history-section">
-        <h3>Transcript:</h3>
+        <h3><em>Transcript</em></h3>
         <div id="history-box">
         {history.map((exchange) => {
-            
                 return (
                     <div className="exchange">
                         <h4>{exchange.prompt}</h4>

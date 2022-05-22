@@ -1,3 +1,10 @@
+@font-face{
+    src: url('./styles/assets/Trispace[wdth\,wght].woff2');
+    font-family: "Trispace";
+}
+$trispace: "Trispace";
+$background: rgba(26,26,26,1);
+$secondary: rgba(49,49,49, 1);
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: $background;
   color: white;
 }
 
@@ -19,11 +26,14 @@ code {
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
+    font-family: $trispace;
     h1 {
-        margin: 3rem auto 0;
+        margin: 6rem auto .33rem;
     }
     h3 {
         margin: 0 auto 3rem;
+        font-weight: 300;
+        font-size: 1rem;
     }
 }
 
@@ -42,29 +52,24 @@ code {
         width: 66%;
         
         #prompt-field {
+            box-sizing: border-box;
+            padding: 3rem;
             margin: auto;
-            width: 66%;
-            height: 12rem;
+            width: 100%;
+            height: 16rem;
             resize: none;
-            padding: 3rem 5rem;
-            font-size: 2rem;
+            font-size: 1.66rem;
             letter-spacing: 1.7;
-            border-radius: 1rem;
+            border-radius: .66rem;
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15), inset 0 8px 10px rgba(0, 0, 0, 0.15),
+            inset 0 10px 12px rgba(0, 0, 0, 0.15), inset 0 14px 16px rgba(0, 0, 0, 0.15),
+            inset 0 18px 32px rgba(0, 0, 0, 0.15);
             caret-color: red;
         }
-        #prompt-field::after {
-            content: "";
-            position: relative;
-            margin: auto;
-            width: 66%;
-            height: 13rem;
-            resize: none;
-            
-            pointer-events: none;
-            z-index: -1;
-        }
+        
         .submit-btn {
             margin-top: 2rem;
+
         }
     }
     
@@ -82,30 +87,60 @@ code {
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
-    overflow: auto;
+    margin-bottom: 8rem;
+    
     #history-box {
+
+        overflow: auto;
         position: relative;
         display: block;
-        height: 17rem;
+        height: 24rem;
         width: 66%;
         margin: auto;
-        border-radius: 1rem;
+        border-radius: .33rem;
         .exchange {
+            box-sizing: border-box;
+            padding: 2rem 3rem;
             width: 100%;
             display: flex;
             flex-flow: column wrap;
             margin: auto;
-            background-color: rgb(25,25,25);
+            background-color: $secondary;
+            border-radius: .33rem;
             box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15), inset 0 8px 10px rgba(0, 0, 0, 0.15),
             inset 0 10px 12px rgba(0, 0, 0, 0.15), inset 0 14px 16px rgba(0, 0, 0, 0.15),
             inset 0 18px 32px rgba(0, 0, 0, 0.15);
-
+            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+                monospace;
             h4 {
-                margin-left: 1rem;
+                margin-left: 10%;
                 max-width: 50%;
             }
+            h4::before {
+                content: ">>";
+                position: relative;
+                left: -3rem;
+                color: red;
+                font-size: 1.33rem;
+                box-shadow: 0 0 .66rem .11rem black;
+                background-color: $background;
+                border-radius: 50%;
+            }
             p {
+                align-self: flex-end;
                 text-align: right;
+                max-width: 50%;
+                margin-right: 10%;
+            }
+            p::after {
+                content: "<<";
+                position: relative;
+                right: -3rem;
+                font-size: 1.33rem;
+                color: blue;
+                box-shadow: 0 0 .66rem .11rem black;
+                background-color: $background;
+                border-radius: 50%;
             }
         }
     }
@@ -116,4 +151,20 @@ code {
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
+    background-color: white;
+    color: black;
+    box-shadow: inset 0 4px 6px $background, inset 0 8px 10px $background,
+            inset 0 10px 12px $background, inset 0 14px 16px $background,
+            inset 0 18px 32px $background;
+    height: 10rem;
+    margin-bottom: 0;
+}
+
+@keyframes fade-in-prompt {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

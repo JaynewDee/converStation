@@ -1,7 +1,8 @@
 const axios = require('axios').default;
-const OPENAI_API_KEY = "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"
+const API_KEY = process.env.OPENAI_API_KEY;
 
 
+console.log(API_KEY)
 
 const getEngines = async (url) => {
     const engineList = await axios({
@@ -9,7 +10,7 @@ const getEngines = async (url) => {
         url: url,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${OPENAI_API_KEY}`,
+            'Authorization': `Bearer ${API_KEY}`,
         }
     })
     return engineList.data;
@@ -21,7 +22,7 @@ const getInstance = async (url) => {
         url: url,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${OPENAI_API_KEY}`,
+            'Authorization': `Bearer ${API_KEY}`,
         }
     })
     return instance.data;
@@ -34,7 +35,7 @@ const postCompletion = async (url, prompt) => {
         url: url,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${OPENAI_API_KEY}`,
+            'Authorization': `Bearer ${API_KEY}`,
         },
         data: {
             "prompt": `${prompt}`,
