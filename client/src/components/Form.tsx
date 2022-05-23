@@ -9,11 +9,9 @@ type FormProps = {
 
 const Form: React.FC<FormProps> = ({ setCurrent }) => {
   const [formText, setFormText] = useState("");
-  const [prompt, setPrompt] = useState("");
-  const [roboReply, setReply] = useState("");
+//   const [prompt, setPrompt] = useState("");
+//   const [roboReply, setReply] = useState("");
 
-  console.log(prompt);
-  console.log(roboReply);
 
   const handleInputChange = (event) => {
     const { value } = event.target;
@@ -40,8 +38,8 @@ const Form: React.FC<FormProps> = ({ setCurrent }) => {
         // storing only the AI's response
         let replyOnly = choices.replace(textOnly, "");
         // Store final values in component state, to pass to parent portal
-        setPrompt(textOnly);
-        setReply(replyOnly);
+        // setPrompt(textOnly);
+        // setReply(replyOnly);
         return {prompt: textOnly, response: replyOnly}
       })
       .then((current) => {

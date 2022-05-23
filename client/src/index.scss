@@ -2,12 +2,15 @@
   src: url("./styles/assets/Trispace[wdth\,wght].woff2");
   font-family: "Trispace";
 }
+
+// *** CSS VARS *** //
 $trispace: "Trispace";
 $code: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-
 $background: rgba(26, 26, 26, 1);
 $secondary: rgba(49, 49, 49, 1);
+// ---------------- //
 
+// *** GENERAL STYLES *** //
 :root {
     font-size: 18px;
 }
@@ -22,11 +25,17 @@ body {
   color: white;
   filter: drop-shadow(2px 16px 20px black);
 }
-
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 code {
   font-family: $code;
 }
+// ----------------------- //
 
+// *** TITLE & SUB-HEADER *** //
 #header-box {
   display: flex;
   justify-content: center;
@@ -42,7 +51,13 @@ code {
     font-size: 1rem;
   }
 }
+// ------------------------ //
 
+
+/* 
+     #portal-box is the ID of the container which wraps 
+        the Form and History/Transcript elements
+*/
 #portal-box {
   z-index: -3;
   .prompt-box {
@@ -78,6 +93,9 @@ code {
         caret-color: red;
         z-index: 1;
       }
+      
+          
+      
       .submit-btn {
         font-size: 1rem;
         font-family: $code;
@@ -101,6 +119,9 @@ code {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15),
           0 8px 10px rgba(0, 0, 0, 0.15), 0 10px 12px rgba(0, 0, 0, 0.15),
           0 14px 16px rgba(0, 0, 0, 0.15), 0 18px 32px rgba(0, 0, 0, 0.15);
+      }
+      .submit-btn:active {
+        transform: scale(.99) translateY(-.8rem)
       }
     }
   }
@@ -168,7 +189,10 @@ code {
     }
   }
 }
+// ---------------------------------------------//
 
+
+// *** FOOTER *** //
 #footer-box {
   display: flex;
   justify-content: center;
@@ -182,7 +206,9 @@ code {
   height: 6rem;
   margin-bottom: 0;
 }
+// ---------------- //
 
+// *** KEYFRAMES/ANIMATIONS *** //
 @keyframes fade-in-prompt {
   0% {
     opacity: 0;
@@ -191,7 +217,10 @@ code {
     opacity: 1;
   }
 }
+// ------------------------- //
 
+
+// *** MEDIA QUERIES *** //
 @media screen and(max-width: 1025px) {
     :root {
         font-size: 16px;
@@ -245,3 +274,4 @@ code {
         }
     }
 }
+// --------------------------END---------------------------------//
