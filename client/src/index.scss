@@ -7,6 +7,10 @@ $code: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 
 $background: rgba(26, 26, 26, 1);
 $secondary: rgba(49, 49, 49, 1);
+
+:root {
+    font-size: 18px;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -16,6 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $background;
   color: white;
+  filter: drop-shadow(2px 16px 20px black);
 }
 
 code {
@@ -76,7 +81,7 @@ code {
       .submit-btn {
         font-size: 1rem;
         font-family: $code;
-        transition: all .33s;
+        transition: all 0.33s;
         transform: translateY(-1rem);
         width: 100%;
         padding: 2rem 0 1rem;
@@ -114,7 +119,6 @@ code {
       height: 24rem;
       width: 66%;
       margin: auto;
-      border-radius: 0.33rem;
       .exchange {
         box-sizing: border-box;
         padding: 2rem 3rem;
@@ -123,23 +127,21 @@ code {
         flex-flow: column wrap;
         margin: auto;
         background-color: $secondary;
-        border-radius: 0.33rem;
         box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15),
-          inset 0 8px 10px rgba(0, 0, 0, 0.15),
-          inset 0 10px 12px rgba(0, 0, 0, 0.15),
-          inset 0 14px 16px rgba(0, 0, 0, 0.15),
-          inset 0 18px 32px rgba(0, 0, 0, 0.15);
+          inset 0 8px 10px rgba(0, 0, 0, 0.15);
+          
         font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
           monospace;
         h4 {
           margin-left: 10%;
           max-width: 50%;
           animation: fade-in-prompt 2s ease-in forwards;
+          font-weight: 300;
         }
         h4::before {
           content: ">>";
           position: relative;
-          left: -3rem;
+          left: -1rem;
           color: red;
           font-size: 1.66rem;
           border-radius: 50%;
@@ -149,14 +151,18 @@ code {
           text-align: right;
           max-width: 50%;
           margin-right: 10%;
+          font-weight: 300;
         }
         p::after {
           content: "<<";
           position: relative;
-          right: -3rem;
+          right: -1rem;
           font-size: 1.66rem;
           color: red;
           border-radius: 50%;
+        }
+        .icon {
+            transform: translateY(.16rem)
         }
       }
     }
@@ -184,4 +190,58 @@ code {
   100% {
     opacity: 1;
   }
+}
+
+@media screen and(max-width: 1025px) {
+    :root {
+        font-size: 16px;
+
+        #portal-box {
+            #history-section {
+                #history-box {
+                    .exchange {
+                        padding: 1rem 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    :root {
+        font-size: 14px;
+        #portal-box {
+            #history-section {
+                #history-box {
+                    .exchange {
+                        padding: .33rem .66rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 426px) {
+    :root {
+        font-size: 12px;
+        #portal-box {
+            #history-section {
+                #history-box {
+                    .exchange {
+                        padding: .33rem .66rem;
+                        h4 {
+                            margin-bottom: 3rem;
+                            max-width: 75%;
+                        }
+                        p {
+                            margin-top: 3rem;
+                            max-width: 75%;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

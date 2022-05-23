@@ -21,8 +21,8 @@ const HistorySection: React.FC<HistoryTypes> = ({data}) => {
         {history.map((exchange) => {
                 return (
                     <div className="exchange">
-                        <h4>{<GiPerson size={28}/>}{':>'}{exchange.prompt}</h4>
-                        <p>{'<:'}{<AiFillRobot size={20}/>}{exchange.response}</p>
+                        <h4>{<GiPerson className="icon" size={28}/>}{':>'}{exchange.prompt}</h4>
+                        <p>{exchange.response}{'<:'}{<AiFillRobot className="icon" size={20}/>}</p>
                     </div>
                 )
         })}
