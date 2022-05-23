@@ -1,14 +1,16 @@
-@font-face{
-    src: url('./styles/assets/Trispace[wdth\,wght].woff2');
-    font-family: "Trispace";
+@font-face {
+  src: url("./styles/assets/Trispace[wdth\,wght].woff2");
+  font-family: "Trispace";
 }
 $trispace: "Trispace";
-$background: rgba(26,26,26,1);
-$secondary: rgba(49,49,49, 1);
+$code: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$background: rgba(26, 26, 26, 1);
+$secondary: rgba(49, 49, 49, 1);
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,27 +19,28 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: $code;
 }
 
 #header-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-    font-family: $trispace;
-    h1 {
-        margin: 6rem auto .33rem;
-    }
-    h3 {
-        margin: 0 auto 3rem;
-        font-weight: 300;
-        font-size: 1rem;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  font-family: $trispace;
+  h1 {
+    margin: 6rem auto 0.33rem;
+  }
+  h3 {
+    margin: 0 auto 3rem;
+    font-weight: 300;
+    font-size: 1rem;
+  }
 }
 
-.prompt-box {
+#portal-box {
+  z-index: -3;
+  .prompt-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,126 +48,140 @@ code {
     margin-bottom: 4rem;
 
     #prompt-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: column wrap;
-        width: 66%;
-        
-        #prompt-field {
-            box-sizing: border-box;
-            padding: 3rem;
-            margin: auto;
-            width: 100%;
-            height: 16rem;
-            resize: none;
-            font-size: 1.66rem;
-            letter-spacing: 1.7;
-            border-radius: .66rem;
-            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15), inset 0 8px 10px rgba(0, 0, 0, 0.15),
-            inset 0 10px 12px rgba(0, 0, 0, 0.15), inset 0 14px 16px rgba(0, 0, 0, 0.15),
-            inset 0 18px 32px rgba(0, 0, 0, 0.15);
-            caret-color: red;
-        }
-        
-        .submit-btn {
-            margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column wrap;
+      width: 66%;
 
-        }
+      #prompt-field {
+        box-sizing: border-box;
+        outline: none;
+        padding: 3rem;
+        margin: auto;
+        width: 100%;
+        height: 16rem;
+        resize: none;
+        font-size: 1.66rem;
+        letter-spacing: 1.7;
+        border-radius: 0.66rem;
+        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15),
+          inset 0 8px 10px rgba(0, 0, 0, 0.15),
+          inset 0 10px 12px rgba(0, 0, 0, 0.15),
+          inset 0 14px 16px rgba(0, 0, 0, 0.15),
+          inset 0 18px 32px rgba(0, 0, 0, 0.15);
+        caret-color: red;
+        z-index: 1;
+      }
+      .submit-btn {
+        font-size: 1rem;
+        font-family: $code;
+        transition: all .33s;
+        transform: translateY(-1rem);
+        width: 100%;
+        padding: 2rem 0 1rem;
+        -webkit-appearance: none;
+        border-radius: 0 0 0.66rem 0.66rem;
+        border: none;
+        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15),
+          inset 0 8px 10px rgba(0, 0, 0, 0.15),
+          inset 0 10px 12px rgba(0, 0, 0, 0.15),
+          inset 0 14px 16px rgba(0, 0, 0, 0.15),
+          inset 0 18px 32px rgba(0, 0, 0, 0.15);
+      }
+      .submit-btn:hover {
+        cursor: pointer;
+        background-color: $secondary;
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15),
+          0 8px 10px rgba(0, 0, 0, 0.15), 0 10px 12px rgba(0, 0, 0, 0.15),
+          0 14px 16px rgba(0, 0, 0, 0.15), 0 18px 32px rgba(0, 0, 0, 0.15);
+      }
     }
-    
-    
-}
+  }
 
-// #btn-stack {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-flow: column wrap;
-// }
-#history-section {
+  #history-section {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
     margin-bottom: 8rem;
-    
-    #history-box {
 
-        overflow: auto;
-        position: relative;
-        display: block;
-        height: 24rem;
-        width: 66%;
+    #history-box {
+      overflow: auto;
+      position: relative;
+      display: block;
+      height: 24rem;
+      width: 66%;
+      margin: auto;
+      border-radius: 0.33rem;
+      .exchange {
+        box-sizing: border-box;
+        padding: 2rem 3rem;
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
         margin: auto;
-        border-radius: .33rem;
-        .exchange {
-            box-sizing: border-box;
-            padding: 2rem 3rem;
-            width: 100%;
-            display: flex;
-            flex-flow: column wrap;
-            margin: auto;
-            background-color: $secondary;
-            border-radius: .33rem;
-            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15), inset 0 8px 10px rgba(0, 0, 0, 0.15),
-            inset 0 10px 12px rgba(0, 0, 0, 0.15), inset 0 14px 16px rgba(0, 0, 0, 0.15),
-            inset 0 18px 32px rgba(0, 0, 0, 0.15);
-            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-                monospace;
-            h4 {
-                margin-left: 10%;
-                max-width: 50%;
-            }
-            h4::before {
-                content: ">>";
-                position: relative;
-                left: -3rem;
-                color: red;
-                font-size: 1.33rem;
-                box-shadow: 0 0 .66rem .11rem black;
-                background-color: $background;
-                border-radius: 50%;
-            }
-            p {
-                align-self: flex-end;
-                text-align: right;
-                max-width: 50%;
-                margin-right: 10%;
-            }
-            p::after {
-                content: "<<";
-                position: relative;
-                right: -3rem;
-                font-size: 1.33rem;
-                color: blue;
-                box-shadow: 0 0 .66rem .11rem black;
-                background-color: $background;
-                border-radius: 50%;
-            }
+        background-color: $secondary;
+        border-radius: 0.33rem;
+        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15),
+          inset 0 8px 10px rgba(0, 0, 0, 0.15),
+          inset 0 10px 12px rgba(0, 0, 0, 0.15),
+          inset 0 14px 16px rgba(0, 0, 0, 0.15),
+          inset 0 18px 32px rgba(0, 0, 0, 0.15);
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+          monospace;
+        h4 {
+          margin-left: 10%;
+          max-width: 50%;
+          animation: fade-in-prompt 2s ease-in forwards;
         }
+        h4::before {
+          content: ">>";
+          position: relative;
+          left: -3rem;
+          color: red;
+          font-size: 1.66rem;
+          border-radius: 50%;
+        }
+        p {
+          align-self: flex-end;
+          text-align: right;
+          max-width: 50%;
+          margin-right: 10%;
+        }
+        p::after {
+          content: "<<";
+          position: relative;
+          right: -3rem;
+          font-size: 1.66rem;
+          color: red;
+          border-radius: 50%;
+        }
+      }
     }
+  }
 }
 
 #footer-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-    background-color: white;
-    color: black;
-    box-shadow: inset 0 4px 6px $background, inset 0 8px 10px $background,
-            inset 0 10px 12px $background, inset 0 14px 16px $background,
-            inset 0 18px 32px $background;
-    height: 10rem;
-    margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  background-color: white;
+  color: black;
+  box-shadow: inset 0 4px 6px $background;
+  // inset 0 10px 12px $background, inset 0 14px 16px $background,
+  // inset 0 18px 32px $background;
+  height: 6rem;
+  margin-bottom: 0;
 }
 
 @keyframes fade-in-prompt {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

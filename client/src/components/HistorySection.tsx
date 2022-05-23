@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import HistoryItem from './HistoryItem';
-
+import { AiFillRobot } from 'react-icons/ai';
+import {GiPerson} from 'react-icons/gi';
 interface HistoryTypes {
     data: object[]
 }
@@ -20,8 +21,8 @@ const HistorySection: React.FC<HistoryTypes> = ({data}) => {
         {history.map((exchange) => {
                 return (
                     <div className="exchange">
-                        <h4>{exchange.prompt}</h4>
-                        <p>{exchange.response}</p>
+                        <h4>{<GiPerson size={28}/>}{':>'}{exchange.prompt}</h4>
+                        <p>{'<:'}{<AiFillRobot size={20}/>}{exchange.response}</p>
                     </div>
                 )
         })}
