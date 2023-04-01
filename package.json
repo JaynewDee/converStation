@@ -1,26 +1,24 @@
 {
-    "name": "converstation",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server/server.js",
-    "scripts": {
-        "start": "node server/server.js",
-        "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-        "install": "cd server && npm i && cd ../client && npm i",
-        "build": "cd client && npm run build"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "concurrently": "^5.1.0"
-    },
-    "dependencies": {
-        "axios": "^0.27.2",
-        "dotenv": "^16.0.1",
-        "nodemon": "^2.0.16"
-    },
-    "engines": {
-        "node": "16.x"
-      }
+  "name": "converstation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "@types/react": "^18.0.31",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.16"
+  }
 }

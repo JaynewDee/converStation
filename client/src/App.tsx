@@ -1,23 +1,18 @@
-import React from 'react';
+import React from "react";
 import { Header, Portal, Footer } from "./components/Index";
 // import { getEngines } from './API/index';
 // import { urls } from './API/urls';
 
 // const { get, post } = urls;
 
-
-
 const App: React.FC = () => {
-    
-
-    return (
-      <>
-        <Header />
-            {/* or, gateway between form, display and history */}
-          <Portal />
-        <Footer />
-      </>
-    );
+  return (
+    <>
+      <Header />
+      <Portal />
+      <Footer />
+    </>
+  );
 };
 
 export default App;

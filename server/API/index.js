@@ -1,47 +1,34 @@
-const curie = require('express').Router();
+const curie = require("express").Router();
 
-const {
-    getEngines,
-    postCompletion
-} = require('./fetch.js');
-const urls = require('./urls.js');
+const { getEngines, postCompletion } = require("./fetch.js");
+const urls = require("./urls.js");
 
-const {
-    get,
-    post
-} = urls;
+const { get, post } = urls;
 
+curie.get("/api/engines", async (req, response) => {
+  try {
+    await getEngines(get.engines).then((res) => {
+      return response.send(res);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  return new Error("Error @ GET route to CURIE \n Filename: API/index.js");
+});
 
-curie.get('/api/engines', async (req, response) => {
-    try {
-        await getEngines(get.engines)
-            .then((res) => {
-                return response.send(res)
-            })
-    } catch (err) {
-        console.error(err)
-    }
-    return new Error("Error @ GET route to CURIE \n Filename: API/index.js")
-})
+curie.post("/api/completion", async (req, response) => {
+  const curiePrompt = req.body.prompt;
 
-
-
-curie.post('/api/completion', async (req, response) => {
-    const curiePrompt = req.body.prompt;
-
-    try {
-        const reply = 
-            await postCompletion(post.curieCompletion, curiePrompt)
-                .then((res)=> response.send(res));
-    }
-    catch (err){console.error(err)}
-})
-
-
-
+  try {
+    await postCompletion(post.curieCompletion, curiePrompt).then((res) =>
+      response.send(res)
+    );
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 module.exports = curie;
-
 
 // *** CREATE COMPLETION *** //
 // POST
@@ -171,8 +158,7 @@ module.exports = curie;
 // A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse.
 // *** end section *** //
 
-// 
-
+//
 
 // *** RETRIEVE ENGINE *** //
 // GET
@@ -188,8 +174,7 @@ module.exports = curie;
 // The ID of the engine to use for this request
 // *** end section *** //
 
-// 
-
+//
 
 // *** LIST ENGINES *** //
 // GET
@@ -199,8 +184,7 @@ module.exports = curie;
 // Lists the currently available engines, and provides basic information about each one such as the owner and availability.
 // *** end section *** //
 
-// 
-
+//
 
 // *** CREATE EDIT *** //
 // POST
@@ -244,4 +228,4 @@ module.exports = curie;
 // We generally recommend altering this or temperature but not both.
 // *** end section *** //
 
-// 
+//

@@ -24,7 +24,6 @@ body {
   background-color: $background;
   color: white;
   filter: drop-shadow(2px 16px 20px black);
-
 }
 button,
 input {
@@ -78,7 +77,7 @@ code {
 
       #prompt-field {
         box-sizing: border-box;
-        border-radius: .22rem .22rem 0 0;
+        border-radius: 0.22rem 0.22rem 0 0;
         outline: none;
         padding: 3rem;
         margin: auto;
@@ -100,13 +99,13 @@ code {
         font-size: 1rem;
         font-family: $code;
         transition: all 0.33s;
-        letter-spacing: .11rem;
+        letter-spacing: 0.11rem;
         transform: translateY(-1rem);
         width: 100%;
         padding: 2rem 0 1rem;
         -webkit-appearance: none;
         border: none;
-        border-radius: 0 0 .22rem .22rem;
+        border-radius: 0 0 0.22rem 0.22rem;
         box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.15),
           inset 0 8px 10px rgba(0, 0, 0, 0.15),
           inset 0 10px 12px rgba(0, 0, 0, 0.15),
@@ -141,10 +140,10 @@ code {
       height: 24rem;
       width: 66%;
       margin: auto;
-      border-radius: .22rem;
+      border-radius: 0.22rem;
       .exchange {
         box-sizing: border-box;
-        border-radius: .22rem;
+        border-radius: 0.22rem;
         padding: 2rem 3rem;
         letter-spacing: 1.3;
         width: 100%;
@@ -187,8 +186,8 @@ code {
           border-radius: 50%;
         }
         .icon {
-          transform: translateY(0.16rem) translateX(.22rem);
-          opacity: .6;
+          transform: translateY(0.16rem) translateX(0.22rem);
+          opacity: 0.6;
         }
       }
     }
@@ -224,7 +223,7 @@ code {
 // ------------------------- //
 
 // *** MEDIA QUERIES *** //
-@media screen and(max-width: 1025px) {
+@media screen and (max-width: 1025px) {
   :root {
     font-size: 16px;
 
